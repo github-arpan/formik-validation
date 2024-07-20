@@ -6,7 +6,6 @@ function App() {
   return (
     <UserProvider>
       <div>
-        <h1>Sign Up</h1>
         <Signup />
         <UserProfile />
       </div>

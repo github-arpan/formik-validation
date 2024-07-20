@@ -5,7 +5,7 @@ import Success from "./Success";
 import { UserContext } from "../contexts/userContext";
 
 const Signup = () => {
-  const { setUserData, userData } = useContext(UserContext);
+  const { addUser, users } = useContext(UserContext);
   const [signUpUser, setSignUpUser] = useState("");
 
   const initialValues = {
@@ -21,15 +21,13 @@ const Signup = () => {
       validationSchema: signUpSchema,
       onSubmit: (values, action) => {
         setSignUpUser(values);
-        setUserData(values); // Store the whole user data
-        console.log(userData);
+        addUser(values);
+        console.log(values);
         action.resetForm();
       },
     });
 
-  return signUpUser ? (
-    <Success />
-  ) : (
+  return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm rounded-lg shadow-2xl border border-gray-100 p-6">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">

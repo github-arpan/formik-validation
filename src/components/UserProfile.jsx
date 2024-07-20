@@ -2,15 +2,15 @@ import React, { useContext } from "react";
 import { UserContext } from "../contexts/userContext";
 
 const UserProfile = () => {
-  const { userData } = useContext(UserContext);
-
+  const { users } = useContext(UserContext);
+  console.log(users);
   return (
     <div>
-      {userData ? (
+      {users.length !== 0 ? (
         <div>
           <h2>User Profile</h2>
-          <p>Name: {userData.name}</p>
-          <p>Email: {userData.email}</p>
+          <p>Name: {users[1].name}</p>
+          <p>Email: {users[1].email}</p>
         </div>
       ) : (
         <p>No user signed up</p>
